@@ -1,7 +1,7 @@
 const axios = require('axios');
 const { Country, Activity } = require('../db');
 const { Op } = require('sequelize');
-
+//quiero modificar
 const getAllCountries = async (req, res) => {
   try {
     // Obtener el parámetro 'name' de la consulta (query)
