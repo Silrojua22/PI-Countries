@@ -5,23 +5,23 @@ module.exports = (sequelize) => {
         id: {
             type: DataTypes.UUID,
             defaultValue: DataTypes.UUIDV4,
-            allownNull: false,
+            allowNull: false, 
             primaryKey: true,
         },
         name: {
             type: DataTypes.STRING,
-            allownNull: false,
+            allowNull: false,
         },
         difficulty: {
             type: DataTypes.ENUM("1", "2", "3", "4", "5"),
-            allownNull: false,
+            allowNull: false,
         },
-        durtion: {
+        duration: {
             type: DataTypes.STRING,
-            allownNull: false,
+            allowNull: false,
         },
         season: {
             type: DataTypes.ENUM("Summer", "Spring", "Autum", "Winter")
         }
-    })
-}
+    });
+};

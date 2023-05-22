@@ -3,12 +3,14 @@ const { Router } = require('express');
 // Ejemplo: const authRouter = require('./auth.js');
 
 const countries = require('./countries');
+const activities = require('./activity')
 
 const router = Router();
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
-router.use('/countries', countries);  //"countries" es el nombre del modelo
+router.use('/countries', countries);  
+router.use('/activities', activities);
 
 module.exports = router;
