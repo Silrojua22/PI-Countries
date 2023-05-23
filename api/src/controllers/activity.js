@@ -33,26 +33,12 @@ const getCreateActivity = async (data) => {
     }
 };
 
-const deleteActivity = async (activityId) => {
-    try {
-        console.log('Activity ID:', activityId);
-        await Country.destroy({ where: { activityId: activityId } });
-        await Activity.destroy({ where: { id: activityId } });
-        return true;
-    } catch (error) {
-        throw new Error("Ha ocurrido un error al eliminar la actividad");
-    }
-};
+
+
+
 
 
 
 module.exports = {
     getCreateActivity,
-    deleteActivity,
-};
-
-
-module.exports = {
-    getCreateActivity,
-    deleteActivity,
 };

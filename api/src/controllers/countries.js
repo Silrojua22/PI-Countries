@@ -21,9 +21,9 @@ const getAllCountries = async (req, res) => {
         name: pais.name.common,
         flags: pais.flags[1],
         continents: pais.continents[0],
-        capital: pais.capital || 'Sin Datos',
-        subregion: pais.subregion,
-        area: pais.area,
+        capital: pais.capital,
+        subregion: pais.subregion || 'Sin Datos',
+        area: pais.area || 'Sin Datos',
         population: pais.population,
         maps: pais.maps?.googleMaps || null,
       }));
