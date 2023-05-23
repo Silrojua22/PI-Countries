@@ -12,7 +12,6 @@ import {
     GET_ACTIVITY_CREATED,
     POST_ACTIVITY,
     CLEAR_DETAIL,
-    ERROR_OCURRED
 } from "./actions-types"
 
 //Renderizado de todos los países, por Id y nombre
@@ -70,7 +69,7 @@ export function clearDetail() {
         type: CLEAR_DETAIL
     };
 };
-
+//Filtro por continentes
 export function filterByContinents(payload) {
     return {
         type: FILTER_BY_CONTINENTS,
@@ -92,15 +91,31 @@ export function orderByName(type) {
         payload: { type }
     }
 };
-
+//Ordenar ascendendente o descendente
 export function orderByPopulation() {
     return {
         type: ORDER_BY_POPULATION,
     }
 };
+//Crear actividades
+export function createActivity(payload) {
+    return async function (dispatch) {
+        try {
+            const apiData = await axios.post(`${url}/activities`, payload);
+            dispatch({ type: POST_ACTIVITY, payload: apiData.data });
+        } catch (error) {
+            console.error(error);
+        }
+    };
+};
 
-export function createActivity () {
-    return {
-        type: GET_ACTIVITY_CREATED
+
+//Buscar activividades creadas
+export function getCreatedData() {
+    return async function (dispatch) {
+        const apiData = axios.get(`${url}/activities`)
+        const getDataActivity = apiData.data;
+        dispatch({ type: GET_ACTIVITY_CREATED, payload: getDataActivity })
     }
-}
+};
+
