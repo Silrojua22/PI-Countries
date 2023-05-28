@@ -1,20 +1,19 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import style from "../LandingPage/landingPage.module.css"
 
 export default function landingPage() {
     return (
-        <div>
+        <div className={style.container} >
             <div>
-                <h1>
-                    Welcome to api countries!
-                </h1>
-            </div>
-            <div>
-            <Link to = "/home">
-                <button>Go Home</button>
+                <Link to="/home">
+                    <button>Go Home</button>
                 </Link>
+                <div>
+                    <h1>Welcome to API C</h1>
+                </div>
             </div>
         </div>
-        
+
     )
 }

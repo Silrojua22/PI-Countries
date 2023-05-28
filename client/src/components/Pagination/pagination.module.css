@@ -1,0 +1,41 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.paginationList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.paginationItem {
+  display: inline-block;
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+  border: 2px solid black;
+}
+
+.paginationLink {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  text-align: center;
+  line-height: 20px;
+  color: black;
+  cursor: pointer;
+}
+
+.active {
+  background-color: rgb(0, 0, 0);
+  color: rgba(255, 255, 255, 0.219);
+}
+
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

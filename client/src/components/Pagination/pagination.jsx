@@ -1,4 +1,6 @@
 import React from "react";
+import styles from "./pagination.module.css"
+
 
 export default function Pagination ({countryPerPage, allCountries, paginado, currentPage}) {
     const pageCountrys = [];
@@ -7,14 +9,17 @@ export default function Pagination ({countryPerPage, allCountries, paginado, cur
         pageCountrys.push(i)
     }
     return (
-        <div >
-            <ul  >
+        <div className={styles.pagination} >
+            <ul className={styles.paginationList} >
                 {pageCountrys && pageCountrys.map((page, index) => (
-            <li key={index}>
+            <li key={index} className={styles.paginationItem}>
                 <button
-                onClick={() => paginado(page)}
-                >
-                {page}
+                onClick={() => paginado(page)
+                }
+                className={`${styles.paginationLink} ${
+                    page === currentPage ? styles.active : ''
+                  }`}>
+                  {page}
                </button>
             </li>
                 ))}
