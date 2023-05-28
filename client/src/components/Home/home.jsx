@@ -9,7 +9,7 @@ import NavBar from "../NavBar/NavBar"
 import FilterContinents from "../FilterAndOrder/FilterContinents";
 import OrderAlfa from "../FilterAndOrder/OrderAlfa";
 import OrderPopulation from "../FilterAndOrder/OrderPopulation";
-
+import style from "./home.module.css"
 
 
 export default function Home() {
@@ -43,7 +43,7 @@ export default function Home() {
 
   return (
 
-    <div>
+    <div className={style.home}>
       <NavBar />
       <div >
 
