@@ -12,6 +12,7 @@ import {
     POST_ACTIVITY,
     CLEAR_DETAIL,
     FILTER_BY_SEASON,
+    DELETE_ACTIVITY
 } from "./actions-types"
 
 //Renderizado de todos los países, por Id y nombre
@@ -79,7 +80,6 @@ export function filterByContinents(payload) {
 
 //Filtro por actividad
 export function filterByActivity(payload) {
-    console.log('Selected Season:', payload.season); 
     return {
         type: FILTER_BY_CONTINENTS,
         payload
@@ -87,7 +87,6 @@ export function filterByActivity(payload) {
 };
 
 export function filterBySeason(season) {
-    console.log(season)
     return {
       type: FILTER_BY_SEASON,
       season
@@ -126,12 +125,21 @@ export function getCreatedData() {
         const apiData = await axios.get(`${url}/activities`); // Esperar la respuesta de la API
         const getDataActivity = apiData.data;
         dispatch({ type: GET_ACTIVITY_CREATED, payload: getDataActivity });
-        console.log(getDataActivity);
       } catch (error) {
         console.error("Error al obtener los datos de la actividad:", error);
         // Aquí puedes manejar el error de alguna manera, por ejemplo, mostrando un mensaje de error al usuario
       }
-    };
+    };  
   }
   
-
+  export function deleteActivity(activityId) {
+    return async function (dispatch) {
+      try {
+        await axios.delete(`${url}/activities/${activityId}`);
+        // Realiza cualquier otra acción necesaria después de eliminar la actividad, como actualizar la lista de actividades
+        dispatch({ type: DELETE_ACTIVITY, payload: activityId });
+      } catch (error) {
+        console.error(error);
+      }
+    };
+  }

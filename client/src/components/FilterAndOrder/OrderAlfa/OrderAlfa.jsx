@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from 'react-redux';
-import { orderByName } from '../../Redux/action'
+import { orderByName } from '../../../Redux/action'
+import style from "../OrderAlfa/orderAlfa.module.css"
 
 
 export default function OrderNameAlpha({ setCurrentPage }) {
@@ -28,7 +29,7 @@ export default function OrderNameAlpha({ setCurrentPage }) {
 
   return (
     <div>
-      <button onClick={handleToggleOpen} >Order By 
+      <button onClick={handleToggleOpen} className={style["button-54"]}>Order By 
         Alphabetical</button>
       {open && (
         <div >

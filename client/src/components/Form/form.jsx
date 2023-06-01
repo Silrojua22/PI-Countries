@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { createActivity, getCountries, filterBySeason } from "../../Redux/action";
 import { validate } from "./validate";
 import swal from "sweetalert";
+import styles from "../Form/form.module.css";
 
 export default function CreateActivity() {
   const dispatch = useDispatch();
@@ -14,7 +15,8 @@ export default function CreateActivity() {
   const [form, setForm] = useState({
     name: "",
     difficulty: "",
-    duration: "",
+    hours: "",
+    minutes: "",
     season: [],
     countries: [],
   });
@@ -91,6 +93,7 @@ export default function CreateActivity() {
             title: "¡Successful!",
             text: "Now you can enjoy your activity",
             icon: "success",
+            button: "OK",
           }).then(() => {
             const seasonString = form.season.join(", ");
             const updatedForm = {
@@ -103,7 +106,8 @@ export default function CreateActivity() {
             setForm({
               name: "",
               difficulty: "",
-              duration: "",
+              hours: "",
+              minutes: "",
               season: [],
               countries: [],
             });
@@ -125,135 +129,155 @@ export default function CreateActivity() {
   return (
     <div>
       <Link to="/home">
-        <button>Back</button>
+        <button className={styles.backButton}>Back</button>
       </Link>
-      <div>
-        <h1>Create tourist activity</h1>
-        <form onSubmit={(e) => handleSubmit(e)}>
+      <div className={styles.formContainer}>
+        <h1 className={styles.title}>Create tourist activity</h1>
+        <form onSubmit={handleSubmit}>
           <div>
-            <div>
-              <label>Activity Name:</label>
-              <input
-                placeholder="Name..."
-                type="text"
-                value={form.name}
-                name="name"
-                onChange={handleChange}
-              />
-              {errors.name && <p>{errors.name}</p>}
-            </div>
-
-            <div>
-              <label>Difficulty:</label>
-              <select
-                type="number"
-                value={form.difficulty}
-                name="difficulty"
-                onChange={handleChange}
-              >
-                <option value="">Select Difficulty</option>
-                <option value="1">Very Easy</option>
-                <option value="2">Easy</option>
-                <option value="3">Normal</option>
-                <option value="4">Difficult</option>
-                <option value="5">Extreme</option>
-              </select>
-              {errors.difficulty && <p>{errors.difficulty}</p>}
-            </div>
-
-            <div>
-              <label>Duration: </label>
-              <input
-                placeholder="Duration..."
-                type="number"
-                value={form.duration}
-                name="duration"
-                onChange={handleChange}
-              />
-              {errors.duration && <p>{errors.duration}</p>}
-              <span>Hs</span>
-            </div>
-
-            <div>
-              <label>Season:</label>
-              <label>
-                <input
-                  type="checkbox"
-                  name="All"
-                  value="All"
-                  onChange={handleCheck}
-                />
-                All
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  name="Summer"
-                  value="Summer"
-                  onChange={handleCheck}
-                />
-                Summer
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  name="Autumn"
-                  value="Autumn"
-                  onChange={handleCheck}
-                />
-                Autumn
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  name="Winter"
-                  value="Winter"
-                  onChange={handleCheck}
-                />
-                Winter
-              </label>
-              <label>
-                <input
-                  type="checkbox"
-                  name="Spring"
-                  value="Spring"
-                  onChange={handleCheck}
-                />
-                Spring
-              </label>
-              {errors.season && <p>{errors.season}</p>}
-            </div>
-
-            <div>
-              <select onChange={(e) => handleSelect(e)}>
-                <option value="">Select Countries</option>
-                {countries.map((cou) => (
-                  <option value={cou.name} key={cou.name}>
-                    {cou.name}
-                  </option>
-                ))}
-              </select>
-              <div>
-                <ul>
-                  <li>
-                    {form.countries.map((el, index) => (
-                      <div key={index}>
-                        {el}
-                        <button onClick={() => handleDelete(el)}>X</button>
-                      </div>
-                    ))}
-                  </li>
-                </ul>
-                {errors.countries && <p></p>}
-              </div>
-            </div>
+            <label className={styles.label}>Activity Name:</label>
+            <input
+              className={styles.input}
+              placeholder="Name..."
+              type="text"
+              value={form.name}
+              name="name"
+              onChange={handleChange}
+            />
+            {errors.name && <p className={styles.errorMessage}>{errors.name}</p>}
           </div>
 
           <div>
-            <button type="submit">
-              <span>Create New Activity</span>
-            </button>
+            <label className={styles.label}>Difficulty:</label>
+            <select
+              className={styles.select}
+              name="difficulty"
+              value={form.difficulty}
+              onChange={handleChange}
+            >
+              <option value="">Select Difficulty</option>
+              <option value="1">⭐️</option>
+              <option value="2">⭐️⭐️</option>
+              <option value="3">⭐️⭐️⭐️</option>
+              <option value="4">⭐️⭐️⭐️⭐️</option>
+              <option value="5">⭐️⭐️⭐️⭐️⭐️</option>
+            </select>
+            {errors.difficulty && <p className={styles.errorMessage}>{errors.difficulty}</p>}
           </div>
+
+          <div className={styles.durationContainer}>
+            <label className={styles.label}>Duration:</label>
+            <div className={styles.timeInputContainer}>
+              <input
+                className={styles.timeInput}
+                type="number"
+                min="0"
+                max="23"
+                value={form.hours}
+                name="hours"
+                onChange={handleChange}
+              />
+              <span className={styles.timeSeparator}>:</span>
+              <input
+                className={styles.timeInput}
+                type="number"
+                min="0"
+                max="59"
+                value={form.minutes}
+                name="minutes"
+                onChange={handleChange}
+              />
+            </div>
+            {errors.hours && <p className={styles.errorMessage}>{errors.hours}</p>}
+            {errors.minutes && <p className={styles.errorMessage}>{errors.minutes}</p>}
+          </div>
+
+          <div className={styles.checkboxContainer}>
+            <label className={styles.label}>Season:</label>
+            <label>
+              <input
+                className={styles.checkbox}
+                type="checkbox"
+                name="All"
+                value="All"
+                onChange={handleCheck}
+              />
+              All
+            </label>
+            <label>
+              <input
+                className={styles.checkbox}
+                type="checkbox"
+                name="Summer"
+                value="Summer"
+                onChange={handleCheck}
+              />
+              Summer
+            </label>
+            <label>
+              <input
+                className={styles.checkbox}
+                type="checkbox"
+                name="Autumn"
+                value="Autumn"
+                onChange={handleCheck}
+              />
+              Autumn
+            </label>
+            <label>
+              <input
+                className={styles.checkbox}
+                type="checkbox"
+                name="Winter"
+                value="Winter"
+                onChange={handleCheck}
+              />
+              Winter
+            </label>
+            <label>
+              <input
+                className={styles.checkbox}
+                type="checkbox"
+                name="Spring"
+                value="Spring"
+                onChange={handleCheck}
+              />
+              Spring
+            </label>
+            {errors.season && <p className={styles.errorMessage}>{errors.season}</p>}
+          </div>
+
+          <div className={styles.countryContainer}>
+            <select
+              className={styles.select}
+              onChange={(e) => handleSelect(e)}
+            >
+              <option value="">Select Countries</option>
+              {countries.map((country, i) => (
+                <option value={country.name} key={i}>
+                  {country.name}
+                </option>
+              ))}
+            </select>
+            <div className={styles.selectedCountries}>
+              {form.countries.map((country, i) => (
+                <div className={styles.selectedCountry} key={i}>
+                  <p>{country}</p>
+                  <button
+                    className={styles.deleteButton}
+                    onClick={() => handleDelete(country)}
+                  >
+                    X
+                  </button>
+                </div>
+              ))}
+            </div>
+            {errors.countries && <p className={styles.errorMessage}>{errors.countries}</p>}
+          </div>
+
+          <button className={styles.createButton} type="submit">
+            Create
+          </button>
         </form>
       </div>
     </div>

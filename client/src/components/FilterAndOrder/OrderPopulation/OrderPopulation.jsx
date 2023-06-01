@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import {orderByPopulation} from "../../Redux/action";
+import {orderByPopulation} from "../../../Redux/action";
+import style from "../OrderPopulation/orderPopulation.module.css"
 
 
 export default function OrderPopulation ({ setCurrentPage }) {
@@ -29,7 +30,7 @@ export default function OrderPopulation ({ setCurrentPage }) {
 
     return (
         <div>
-          <button onClick={handleToggleOpen}>Order By 
+          <button onClick={handleToggleOpen} className={style["button-54"]}>Order By 
             Population</button>
           {open && (
             <div>

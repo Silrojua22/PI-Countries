@@ -1,74 +1,64 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { getCountries, getCountriesName } from "../../Redux/action"
-
+import { getCountries, getCountriesName } from "../../Redux/action";
+import styles from "./NavBar.module.css";
 
 export default function NavBar() {
-   const dispatch = useDispatch();
-   const [name, setName] = useState("");
+  const dispatch = useDispatch();
+  const [name, setName] = useState("");
 
+  const handleInputChange = (e) => {
+    const { value } = e.target;
+    setName(value);
+    dispatch(getCountriesName(value));
+  };
 
-   const handleInputChange = (e) => {
-      const { value } = e.target;
-      setName(value);
-      dispatch(getCountriesName(value))
-   };
+  const handleClick = (e) => {
+    e.preventDefault();
+    setName("");
+    dispatch(getCountries());
+  };
 
-   const handleClick = (e) => {
-      e.preventDefault();
-      setName("");
-      dispatch(getCountries())
-   };
-
-   return (
-      <div>
-         <div >
-
-            <div>
-
-               <input type="checkbox" id="menu-toggle" />
-               <label htmlFor="menu-toggle">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-               </label>
-
-               <div >
-                  <Link to="/about">About</Link>
-                  <Link to="/create">Create an Activity</Link>
-                  <Link to="/">
-                     Back
-                  </Link>
-               </div>
-            </div>
-
-            <div>
-               <form action>
-                  <input
-                     type="search"
-                     placeholder="Search..."
-                     value={name}
-                     onChange={handleInputChange}
-
-                  />
-
-                  <div  >
-                     <span>🔍</span>
-                  </div>
-               </form>
-               <button onClick={handleClick} >
-                  Reset
-               </button>
-            </div>
-         </div>
-
-         <div >
-            <h1>COUNTRIES API</h1>
-         </div>
-
+  return (
+    <div className={styles["navbar-container"]}>
+      <div className={styles["navbar-menu"]}>
+        <label htmlFor="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+        <div>
+          <Link to="/about" className={`${styles["navbar-link"]} ${styles["navbar-link-hover"]}`}>
+            About
+          </Link>
+          <Link
+            to="/create"
+            className={`${styles["navbar-link"]} ${styles["navbar-link-hover"]}`}
+          >
+            Create an Activity
+          </Link>
+          <Link to="/" className={`${styles["navbar-link"]} ${styles["navbar-link-hover"]}`}>
+            Back
+          </Link>
+        </div>
       </div>
-   );
-
+      <div className={styles["navbar-search"]}>
+        <form action>
+          <input
+            type="search"
+            placeholder="Search..."
+            value={name}
+            onChange={handleInputChange}
+          />
+          <div>
+            <span role="img" aria-label="Search"></span>
+          </div>
+        </form>
+        <button onClick={handleClick} className={styles["reset-button"]}>
+          Reset
+        </button>
+      </div>
+    </div>
+  );
 }
-

@@ -9,6 +9,7 @@ import {
     POST_ACTIVITY,
     CLEAR_DETAIL,
     FILTER_BY_SEASON,
+    DELETE_ACTIVITY,
     //FILTER_ACTIVITY,
   } from './actions-types';
   
@@ -24,7 +25,6 @@ import {
   function rootReducer(state = initialState, action) {
     switch (action.type) {
       case GET_COUNTRY:
-        console.log("Payload:", action.payload);
         console.dir(Object.prototype);
 
         return {
@@ -114,6 +114,13 @@ import {
         ...state,
         filteredObjects
       };
+      case DELETE_ACTIVITY:
+  const updatedActivities = state.activities.filter(activity => activity.id !== action.payload);
+  return {
+    ...state,
+    activities: updatedActivities
+  };
+
     default:
       return state;
   }

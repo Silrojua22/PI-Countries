@@ -4,14 +4,14 @@ const { getCreateActivity } = require("../controllers/activity")
 const { deleteActivity } = require("../controllers/deleteActivity")
 
 const router = Router();
-
+//Buscar y devolver todas las actividades creadas 
 router.get('/', async (req, res) => {
   try {
-    // Buscar todas las actividades en la base de datos
+    
     const allActivities = await Activity.findAll({
       include: Country
     })
-    // Devolvemos las acitividades encontradas como respuesta
+    
     res.status(200).json(allActivities)
   } catch (error) {
     res.status(400).json({ error: "No se encontraron actividades" })
@@ -19,10 +19,10 @@ router.get('/', async (req, res) => {
 
 });
 
-
+// Crear una nueva actividad utilizando los datos recibidos en el cuerpo de la solicitud
 router.post("/", async (req, res, next) => {
   try {
-    // Crear una nueva actividad utilizando los datos recibidos en el cuerpo de la solicitud
+    
     const response = await getCreateActivity(req.body);
     res.status(201).json({
       status: 'Se ha creado exitosamente'
@@ -35,7 +35,7 @@ router.post("/", async (req, res, next) => {
   }
 })
 
-
+//Eliminar actividad por su id
 router.delete("/:id", async (req, res, next) => {
   try {
     const activityId = req.params.id;

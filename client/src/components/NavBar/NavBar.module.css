@@ -1,0 +1,68 @@
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f1f1f1;
+    padding: 10px;
+    font-family: "Open Sans", sans-serif;
+  }
+  
+  .navbar-brand {
+    font-size: 24px;
+    
+  }
+  
+  .navbar-menu {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-menu a {
+    margin-right: 10px;
+    color: #333;
+   
+  }
+  
+  .navbar-search {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-search input[type="search"] {
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+    margin-right: 5px;
+  }
+  
+  .navbar-search button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #333;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .navbar-search button:hover {
+    background-color: #555;
+  }
+  
+  .reset-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #f1f1f1;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .reset-button:hover {
+    background-color: #ccc;
+  }
+  .navbar-link-hover:hover {
+    background-color: #47709F;
+    color: #fff;
+  }

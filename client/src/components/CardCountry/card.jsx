@@ -10,11 +10,14 @@ export default function Card(props) {
       <div className={style.flag}>
         <img src={image} alt={name} />
       </div>
+      <div>
+        <h1>{name}</h1>
+      </div>
       <div className={style["card-content"]}>
         <h1>{name}</h1>
         <h1>{continents}</h1>
         <Link to={`/detail/${id}`}>
-          <button className={style.button}>More Info</button>
+          <button className={style["button-54"]}>More Info</button>
         </Link>
       </div>
     </div>
