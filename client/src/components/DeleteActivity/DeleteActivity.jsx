@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { deleteActivity } from "../../Redux/action";
+import style from "../DeleteActivity/delete.module.css"
 
 export default function DeleteActivity({ activityId }) {
     const dispatch = useDispatch();
@@ -9,6 +10,6 @@ export default function DeleteActivity({ activityId }) {
     };
 
     return (
-        <button onClick={handleDelete}>Delete Activity</button>
+        <button onClick={handleDelete} className={style["button-54"]}>Delete Activity</button>
     );
 };
