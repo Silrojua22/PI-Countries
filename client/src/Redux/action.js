@@ -100,11 +100,12 @@ export function orderByName(type) {
     }
 };
 //Ordenar ascendendente o descendente
-export function orderByPopulation() {
+export const orderByPopulation = (sortOrder) => {
     return {
-        type: ORDER_BY_POPULATION,
-    }
-};
+      type: ORDER_BY_POPULATION,
+      payload: sortOrder,
+    };
+  };
 //Crear actividades
 export function createActivity(payload) {
     return async function (dispatch) {

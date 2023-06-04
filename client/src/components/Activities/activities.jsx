@@ -36,8 +36,8 @@ export default function Activities() {
       <ul>
         {activities.map((activity) => (
           <li key={activity.id}>
-            <label>
-              <input type="checkbox" onChange={() => handleActivityClick(activity.id)} />
+            <label className={styles.checkboxLabel}>
+              <input type="checkbox" onChange={() => handleActivityClick(activity.id)} className={styles.checkbox} />
               {activity.name}
             </label>
             <DeleteActivity activityId={activity.id} />
@@ -56,7 +56,7 @@ export default function Activities() {
                   <img src={country.flags} alt={country.name} />
                 </div>
                 <div>
-                    {country.name}
+                  {country.name}
                 </div>
                 <div className={styles["card-content"]}>
                   <h1>{country.name}</h1>

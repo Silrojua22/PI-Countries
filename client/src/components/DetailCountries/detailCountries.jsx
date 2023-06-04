@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
 import { getDetail } from "../../Redux/action";
+import style from "../DetailCountries/detailCountries.module.css"
+
 
 export default function DetailCountries() {
 const dispatch = useDispatch();
@@ -17,10 +19,14 @@ useEffect(() => {
 console.log("Details:", details);
 
 return (
-    <div >
+    <div className={style.detail} >
       <div>
-        <Link to='/create' >Add an Activity</Link>
-        <Link to='/home' >⬅ Back to home</Link>
+      <Link to="/create">
+          <button className={style["button-54"]}>Add an Activity</button>
+        </Link>
+        <Link to="/home">
+          <button className={style["button-54"]}>Back to home</button>
+        </Link>
       </div>
       <div >
         <div >
