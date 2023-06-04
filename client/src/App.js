@@ -5,6 +5,7 @@ import Home from './components/Home/home';
 import DetailCountries from './components/DetailCountries/detailCountries';
 import Form from "./components/Form/form"
 import Activities from './components/Activities/activities';
+import About from './components/About/About';
 function App() {
   return (
   <BrowserRouter>
@@ -15,6 +16,7 @@ function App() {
       <Route exact path="/create" component={Form}/>
       <Route exact path="/detail/:id" component={DetailCountries}/>
       <Route exact path="/Activities" component={Activities}/>
+      <Route exact path="/About" component={About}/>
     </div>
   </Switch>
   </BrowserRouter>

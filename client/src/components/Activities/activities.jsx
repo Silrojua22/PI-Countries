@@ -32,8 +32,8 @@ export default function Activities() {
 
   return (
     <div className={styles.activities}>
-      <h2>List Activities</h2>
-      <ul>
+      <h2 className={styles.h2}>List Activities</h2>
+      <ul className={styles.li}>
         {activities.map((activity) => (
           <li key={activity.id}>
             <label className={styles.checkboxLabel}>
@@ -45,11 +45,11 @@ export default function Activities() {
         ))}
       </ul>
 
-      {/* Renderizar los países seleccionados */}
+     
       {countries && countries.length > 0 ? (
         <div>
           <h3>Countries with activity</h3>
-          <ul>
+          <ul >
             {countries.map((country) => (
               <div key={country.id} className={styles.card}>
                 <div className={styles.flag}>
@@ -70,7 +70,7 @@ export default function Activities() {
           </ul>
         </div>
       ) : (
-        <p>No activities have been created yet</p>
+        <p className={styles.p}>No activities have been created yet</p>
       )}
       <Link to="/home">
         <button className={styles["button-54"]}>Go Home</button>

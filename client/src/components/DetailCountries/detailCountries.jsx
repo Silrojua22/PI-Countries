@@ -28,8 +28,8 @@ return (
           <button className={style["button-54"]}>Back to home</button>
         </Link>
       </div>
-      <div >
-        <div >
+      <div > 
+        <div  >
           {details.hasOwnProperty("name") ? (
             <div>
               <img  src={details.flags} alt='Bandera' />
@@ -38,17 +38,17 @@ return (
             <p>Buscando.....</p>
           )}
         </div>
-        <div >
+        <div className={style.details}>
           {details.hasOwnProperty("name") && (
-            <h2>{details.name}</h2>
+            <h2 >{details.name}</h2>
           )}
         </div>
       </div>
 
       <div >
-        <div >
+        <div className={style.detail}>
           {details.hasOwnProperty("name") && (
-            <div>
+            <div >
               <p>Continent: {details.continents}</p>
               <p>Capital: {details.capital.replace(/["{}]/g, '')}</p>
               <p>Subregion: {details.subregion}</p>
@@ -57,17 +57,17 @@ return (
             </div>
           )}
         </div>
-        <div >
+        <div className={style.detail}>
             <h2><i>Activities:</i></h2>
             {console.log("Activities:", details.activities)}
             {details.activities?.length > 0 ? (
               details.activities.map(act => (
                 <div key={act.id} >
-                  <h3 >Activity: {act.names}</h3>
+                  <h3 >Activity: {act.name}</h3>
                   <p >
-                    <span>Season: {act.season}</span>
-                    <span>Duration: {act.duration}hs.</span>
-                    <span>Difficulty: {act.difficulty}</span>
+                    Season: {act.season} <br /> 
+                    Duration: {act.duration}hs. <br />
+                    Difficulty: {act.difficulty} 
                   </p>
                 </div>
               ))

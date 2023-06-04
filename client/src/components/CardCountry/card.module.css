@@ -4,7 +4,8 @@
   padding: 10px;
   margin: 10px;
   display: inline-block;
-  width: 200px;
+  width: 100%;
+  max-width: 200px;
   height: 300px;
   position: relative;
   overflow: hidden;
@@ -28,8 +29,8 @@
 }
 
 .flag img {
-  width: auto;
-  height: 57%;
+  width: 100%;
+  height: auto;
   object-fit: cover;
 }
 
@@ -51,16 +52,12 @@
   transform: translateX(-100%);
   text-align: center;
   font-family: "Open Sans", sans-serif;
-  
 }
-
 
 .card:hover .card-content {
   opacity: 1;
   transform: translateX(0%);
 }
-
-
 
 .card-content button {
   margin-top: 10px;

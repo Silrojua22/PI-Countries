@@ -1,12 +1,13 @@
-body {
-  background-color: #47709F;
-
-}
+/* body {
+    background-image: url("../../assets/mundo.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
 
 .button-54 {
     margin: 25px;
     font-family: "Open Sans", sans-serif;
-    font-size: 16px;
+    font-size: 12px;
     letter-spacing: 2px;
     text-decoration: none;
     color: #000;
@@ -18,29 +19,36 @@ body {
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
-  }
-  
-  .button-54:active {
+}
+
+.button-54:active {
     box-shadow: 0px 0px 0px 0px;
     top: 5px;
     left: 5px;
-  }
-  
-  @media (min-width: 768px) {
-    .button-54 {
-      padding: 0.25em 0.75em;
-    }
-  }
+}
 
-  .details {
-    font-family:"Open Sans", sans-serif;
+@media (min-width: 768px) {
+    .button-54 {
+        padding: 0.25em 0.75em;
+    }
+}
+
+.highlight {
+
+    padding: 20px;
+    color: white;
+}
+
+.title {
+    font-size: 35px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     color: #fff;
     text-decoration: underline;
-  }
+}
 
-  .detail {
-    font-family:"Open Sans", sans-serif;
+.paragraph {
+    font-size: 24px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     color: #fff;
-  }
+    /* Cambia el color del texto a blanco para resaltar el efecto de sombra */
+}
