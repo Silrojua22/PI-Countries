@@ -19,6 +19,13 @@ body {
   margin: 20px;
 }
 
+@media (max-width: 768px) {
+  .button-54 {
+    width: 40px;
+  }
+
+}
+
 .pagination-button {
   background-color: #fff;
   color: #47709F;
@@ -45,18 +52,17 @@ body {
   align-items: center;
   margin-top: 10px;
   gap: 70px;
-}                                                                                           
+}
 
 .buttonContainer button {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 @media (max-width: 768px) {
   .buttonContainer {
-
-    
+    width: 10%;
   }
 }
 
