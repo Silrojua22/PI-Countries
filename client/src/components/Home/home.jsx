@@ -39,7 +39,7 @@ export default function Home() {
   return (
     <div className={style.home}>
       <NavBar />
-      <div>
+      <div className={styles.containerbutton}>
         <div className={styles.buttonContainer}>
           <div>
             <FilterContinents setCurrentPage={setCurrentPage}  />
