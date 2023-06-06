@@ -15,8 +15,7 @@ export default function CreateActivity() {
   const [form, setForm] = useState({
     name: "",
     difficulty: "",
-    hours: "",
-    minutes: "",
+    duration: "",
     season: [],
     countries: [],
   });
@@ -106,8 +105,7 @@ export default function CreateActivity() {
             setForm({
               name: "",
               difficulty: "",
-              hours: "",
-              minutes: "",
+              duration: "",
               season: [],
               countries: [],
             });
@@ -127,9 +125,9 @@ export default function CreateActivity() {
   }
 
   return (
-    <div>
+    <div className={styles.form}>
       <Link to="/home">
-        <button className={styles.backButton}>Back</button>
+        <button className={styles["button-54"]}>Back</button>
       </Link>
       <div className={styles.formContainer}>
         <h1 className={styles.title}>Create tourist activity</h1>
@@ -172,24 +170,14 @@ export default function CreateActivity() {
                 className={styles.timeInput}
                 type="number"
                 min="0"
-                max="23"
-                value={form.hours}
-                name="hours"
+                max="24"
+                value={form.duration}
+                name="duration"
                 onChange={handleChange}
               />
-              <span className={styles.timeSeparator}>:</span>
-              <input
-                className={styles.timeInput}
-                type="number"
-                min="0"
-                max="59"
-                value={form.minutes}
-                name="minutes"
-                onChange={handleChange}
-              />
+              <p>Hs.</p>
             </div>
-            {errors.hours && <p className={styles.errorMessage}>{errors.hours}</p>}
-            {errors.minutes && <p className={styles.errorMessage}>{errors.minutes}</p>}
+            {errors.duration && <p className={styles.errorMessage}>{errors.duration}</p>}
           </div>
 
           <div className={styles.checkboxContainer}>
@@ -276,7 +264,7 @@ export default function CreateActivity() {
           </div>
 
           <button className={styles.createButton} type="submit">
-            Create
+            Create Activity
           </button>
         </form>
       </div>

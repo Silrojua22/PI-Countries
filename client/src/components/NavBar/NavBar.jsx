@@ -29,14 +29,14 @@ export default function NavBar() {
           <span></span>
         </label>
         <div>
-          <Link to="/about" className={`${styles["navbar-link"]} ${styles["navbar-link-hover"]}`}>
-            About
-          </Link>
           <Link
             to="/create"
             className={`${styles["navbar-link"]} ${styles["navbar-link-hover"]}`}
           >
             Create an Activity
+          </Link>
+          <Link to="/about" className={`${styles["navbar-link"]} ${styles["navbar-link-hover"]}`}>
+            About
           </Link>
           <Link to="/" className={`${styles["navbar-link"]} ${styles["navbar-link-hover"]}`}>
             Back

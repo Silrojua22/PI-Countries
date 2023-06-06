@@ -1,7 +1,7 @@
 .button-54 {
   margin: 25px;
   font-family: "Open Sans", sans-serif;
-  font-size: 16px;
+  font-size: 12px;
   letter-spacing: 2px;
   text-decoration: none;
   color: #000;
@@ -24,12 +24,6 @@
 @media (min-width: 768px) {
   .button-54 {
     padding: 0.25em 0.75em;
+    font-size: 16px;
   }
-}
-
-.li {
-  list-style: none;
-  display: flex;
-  align-items: none;
-  flex-direction: column;
 }

@@ -1,7 +1,6 @@
 import axios from "axios";
 
 import {
-    url,
     GET_COUNTRY,
     GET_COUNTRY_NAME,
     GET_DETAIL,
@@ -18,7 +17,7 @@ import {
 //Renderizado de todos los países, por Id y nombre
 export function getCountries() {
     return function (dispatch) {
-        return axios.get(`${url}/countries`)
+        return axios.get("/countries")
             .then(response => {
                 dispatch({
                     type: GET_COUNTRY,
@@ -34,7 +33,7 @@ export function getCountries() {
 //Para el searchBar
 export function getCountriesName(name) {
     return function (dispatch) {
-        return axios.get(`${url}/countries`)
+        return axios.get("/countries")
             .then(response => {
                 const filteredCountries = response.data.filter(country =>
                     country.name.toLowerCase().includes(name.toLowerCase())
@@ -54,7 +53,7 @@ export function getCountriesName(name) {
 export function getDetail(id) {
     return async function (dispatch) {
         try {
-            const json = await axios.get(`${url}/countries/${id}`)
+            const json = await axios.get(`/countries/${id}`)
             return dispatch({
                 type: GET_DETAIL,
                 payload: json.data
@@ -100,16 +99,17 @@ export function orderByName(type) {
     }
 };
 //Ordenar ascendendente o descendente
-export function orderByPopulation() {
+export const orderByPopulation = (sortOrder) => {
     return {
-        type: ORDER_BY_POPULATION,
-    }
-};
+      type: ORDER_BY_POPULATION,
+      payload: sortOrder,
+    };
+  };
 //Crear actividades
 export function createActivity(payload) {
     return async function (dispatch) {
         try {
-            const apiData = await axios.post(`${url}/activities`, payload);
+            const apiData = await axios.post("/activities", payload);
             dispatch({ type: POST_ACTIVITY, payload: apiData.data });
         } catch (error) {
             console.error(error);
@@ -122,7 +122,7 @@ export function createActivity(payload) {
 export function getCreatedData() {
     return async function (dispatch) {
       try {
-        const apiData = await axios.get(`${url}/activities`); // Esperar la respuesta de la API
+        const apiData = await axios.get("/activities"); // Esperar la respuesta de la API
         const getDataActivity = apiData.data;
         dispatch({ type: GET_ACTIVITY_CREATED, payload: getDataActivity });
       } catch (error) {
@@ -135,7 +135,7 @@ export function getCreatedData() {
   export function deleteActivity(activityId) {
     return async function (dispatch) {
       try {
-        await axios.delete(`${url}/activities/${activityId}`);
+        await axios.delete(`/activities/${activityId}`);
         // Realiza cualquier otra acción necesaria después de eliminar la actividad, como actualizar la lista de actividades
         dispatch({ type: DELETE_ACTIVITY, payload: activityId });
       } catch (error) {
