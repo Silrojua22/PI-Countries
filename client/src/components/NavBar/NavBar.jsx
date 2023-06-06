@@ -24,9 +24,6 @@ export default function NavBar() {
     <div className={styles["navbar-container"]}>
       <div className={styles["navbar-menu"]}>
         <label htmlFor="menu-toggle">
-          <span></span>
-          <span></span>
-          <span></span>
         </label>
         <div>
           <Link
