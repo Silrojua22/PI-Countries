@@ -1,4 +1,5 @@
-export const url = "http://localhost:3001"
+//export const url = "http://localhost:3001"
+export const url = "https://pi-countries-production-e787.up.railway.app/"
 export const GET_COUNTRY = "GET_COUNTRY"
 export const GET_COUNTRY_NAME = "GET_COUNTRY_NAME"
 export const GET_DETAIL = "GET_DETAIL"
