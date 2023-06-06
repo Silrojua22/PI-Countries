@@ -14,7 +14,7 @@ const getAllCountries = async (req, res) => {
 
     if (!countryCount) {
       // Si no hay países en la base de datos, obtener los países de la API externa
-      const response = await axios.get(`${DB_URL}`);
+      const response = await axios.get(DB_URL);
       const apiCountries = response.data;
 
       // Mapear los datos de los países obtenidos de la API a un formato deseado
