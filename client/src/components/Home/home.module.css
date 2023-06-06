@@ -1,0 +1,85 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+.home {
+  background-color: #47709F;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.pagination-button {
+  background-color: #fff;
+  color: #47709F;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.pagination-button.active {
+  background-color: #47709F;
+  color: #fff;
+}
+
+.pagination-button:hover {
+  background-color: #eee;
+}
+
+.buttonContainer {
+  display: flex;
+  margin-left: 75px;
+  align-items: center;
+  margin-top: 10px;
+  gap: 70px;
+}
+
+.buttonContainer button {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+}
+
+@media (max-width: 400px) {
+  .buttonContainer {
+    flex-direction: column;
+    margin-left: 0;
+    gap: 10px;
+  }
+}
+
+.button-54 {
+  margin: 25px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  color: #000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.10em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-54:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
+}
+
+@media (min-width: 768px) {
+  .button-54 {
+    padding: 0.25em 0.75em;
+  }
+}
